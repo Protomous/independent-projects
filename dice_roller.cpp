@@ -3,6 +3,7 @@
 using namespace std;
 
 bool rerollF(string answer);
+void rollerF(int amount, int sides);
 
 int main()
 {
@@ -34,11 +35,7 @@ int main()
             cin >> sides;
         } while (amount <= 0 && sides <= 0);
 
-        for (int i = 1; i <= amount; i++)
-        {
-            int num = (rand() % sides) + 1;
-            cout << num << " ";
-        }
+        rollerF(amount, sides);
 
         cout << "\n";
         cout << "\n";
@@ -52,10 +49,9 @@ int main()
         cout << "\n";
         cout << "\n";
 
-        
         reroll = rerollF(answer);
 
-    } while (reroll);
+    } while (reroll == true);
     return 0;
 }
 bool rerollF(string answer)
@@ -72,12 +68,24 @@ bool rerollF(string answer)
             return true;
             break;
         case 'n':
+            cout << "\n";
+            cout << "\n";
             cout << "Thanks for rolling!\n";
+            cout << "\n";
+            cout << "\n";
             return false;
             break;
         default:
             cout << "Please only answer with 'y' or 'n'\n";
             break;
         }
-    }while (answer.at(0) != 'y' & answer.at(0) != 'n');
+    } while (answer.at(0) != 'y' & answer.at(0) != 'n');
+}
+void rollerF(int amount, int sides)
+{
+    for (int i = 1; i <= amount; i++)
+    {
+        int num = (rand() % sides) + 1;
+        cout << num << " ";
+    }
 }
