@@ -5,15 +5,7 @@ using namespace std;
 int main()
 {
     string temp;
-    double f;
-    double c;
-    double k;
-    double d;
-    double n;
-    double g;
-    double rankine;
-    double romer;
-    double reaumur;
+    double f, c, k, d, n, g, rankine, romer, reaumur;
     cout <<"\n";
     cout <<"\n";
     cout <<"\n";
@@ -34,7 +26,7 @@ int main()
             cin >> rankine;
             f = rankine - 459.67;
             c = (f - 32) * 0.5556;
-            cout << "It corresponds to " << f << " degrees fahrenheit, and " << c << "degrees celsius.\n";
+            cout << "It corresponds to " << f << " degrees fahrenheit, and " << c << " degrees celsius.\n";
             break;
         case 'o':
             cout << "Nice try.\n";
