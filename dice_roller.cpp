@@ -80,6 +80,7 @@ bool rerollF(string answer)
             break;
         }
     } while (answer.at(0) != 'y' & answer.at(0) != 'n');
+    return -1;
 }
 void rollerF(int amount, int sides)
 {
