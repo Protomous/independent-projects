@@ -19,6 +19,8 @@ enum Temperature
 
 void convertTemperature(Temperature &temperature);
 
+bool redo(string answer);
+
 class Scale
 {
 public:
@@ -144,97 +146,114 @@ public:
 
 int main()
 {
-    char redo;
-    bool redoB;
     string temp;
+    string answer;
     cout << endl;
     cout << endl;
     cout << endl;
     cout << "***********************************************************************************\n";
     cout << "*************************** TEMPERATURE SCALE CONVERTER ***************************\n";
     cout << "***********************************************************************************\n";
-do{
-    cout << "Please specify which temperature scale to use: ";
-    cin >> temp;
+    do
+    {
+        cout << "Please specify which temperature scale to use: ";
+        cin >> temp;
 
-    transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
+        transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
 
-    if (temp == "fahrenheit")
-    {
-        Temperature temperature = fahrenheit;
-        convertTemperature(temperature);
-    }
-    else if (temp == "celsius")
-    {
-        Temperature temperature = celsius;
-        convertTemperature(temperature);
-    }
-    else if (temp == "kelvin")
-    {
-        Temperature temperature = kelvin;
-        convertTemperature(temperature);
-    }
-    else if (temp == "delisle")
-    {
-        Temperature temperature = delisle;
-        convertTemperature(temperature);
-    }
-    else if (temp == "newton")
-    {
-        Temperature temperature = newton;
-        convertTemperature(temperature);
-    }
-    else if (temp == "delisle")
-    {
-        Temperature temperature = delisle;
-        convertTemperature(temperature);
-    }
-    else if (temp == "delisle")
-    {
-        Temperature temperature = delisle;
-        convertTemperature(temperature);
-    }
-    else if (temp == "gasmark")
-    {
-        Temperature temperature = gasmark;
-        convertTemperature(temperature);
-    }
-    else if (temp == "rankine")
-    {
-        Temperature temperature = rankine;
-        convertTemperature(temperature);
-    }
-    else if (temp == "romer")
-    {
-        Temperature temperature = delisle;
-        convertTemperature(temperature);
-    }
-    else if (temp == "reaumur" || temp == "réaumur")
-    {
-        Temperature temperature = reaumur;
-        convertTemperature(temperature);
-    }
-    else
-    {
-        cout << "Not a valid scale!";
-    }
+        if (temp == "fahrenheit")
+        {
+            Temperature temperature = fahrenheit;
+            convertTemperature(temperature);
+        }
+        else if (temp == "celsius")
+        {
+            Temperature temperature = celsius;
+            convertTemperature(temperature);
+        }
+        else if (temp == "kelvin")
+        {
+            Temperature temperature = kelvin;
+            convertTemperature(temperature);
+        }
+        else if (temp == "delisle")
+        {
+            Temperature temperature = delisle;
+            convertTemperature(temperature);
+        }
+        else if (temp == "newton")
+        {
+            Temperature temperature = newton;
+            convertTemperature(temperature);
+        }
+        else if (temp == "delisle")
+        {
+            Temperature temperature = delisle;
+            convertTemperature(temperature);
+        }
+        else if (temp == "delisle")
+        {
+            Temperature temperature = delisle;
+            convertTemperature(temperature);
+        }
+        else if (temp == "gasmark")
+        {
+            Temperature temperature = gasmark;
+            convertTemperature(temperature);
+        }
+        else if (temp == "rankine")
+        {
+            Temperature temperature = rankine;
+            convertTemperature(temperature);
+        }
+        else if (temp == "romer")
+        {
+            Temperature temperature = delisle;
+            convertTemperature(temperature);
+        }
+        else if (temp == "reaumur" || temp == "réaumur")
+        {
+            Temperature temperature = reaumur;
+            convertTemperature(temperature);
+        }
+        else
+        {
+            cout << "Not a valid scale!";
+        }
 
-    cout << "Do you want to do it again? (Y or N)";
-    cin >> redo;
-    if(toupper(redo) == 'Y'){
-        redoB = true;
-    }else{
-        redoB = false;
-    }
-
-    }while(redoB);
+    } while (redo(answer) == true);
 
     cout << "***********************************************************************************\n";
     cout << "***********************************************************************************\n";
     cout << "***********************************************************************************\n";
-
 }
 
+bool redo(string answer)
+{
+    do
+    {
+        cout << "Would you like to roll again?\n";
+        cout << "(y/n)\n";
+        cin >> answer;
+
+        switch (tolower(answer.at(0)))
+        {
+        case 'y':
+            return true;
+            break;
+        case 'n':
+            cout << "\n";
+            cout << "\n";
+            cout << "Thanks for using me!\n";
+            return false;
+            break;
+        default:
+            cout << "Please only answer with 'y' or 'n'\n";
+            break;
+        }
+    } while (tolower(answer.at(0)) != 'y' & tolower(answer.at(0) != 'n'));
+    return -1;
+}
 void convertTemperature(Temperature &temperature)
 {
 

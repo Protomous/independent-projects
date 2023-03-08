@@ -9,7 +9,6 @@ int main()
 {
     int amount;
     int sides;
-    bool reroll;
     string answer;
     srand(time(NULL));
 
@@ -49,9 +48,7 @@ int main()
         cout << "\n";
         cout << "\n";
 
-        reroll = rerollF(answer);
-
-    } while (reroll == true);
+    } while (rerollF(answer) == true);
     return 0;
 }
 bool rerollF(string answer)
