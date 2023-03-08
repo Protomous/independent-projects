@@ -328,7 +328,7 @@ void convertTemperature(Temperature &temperature)
     case reaumur:
     {
         double x;
-        cout << "Please input the temperature in the Delisle scale: ";
+        cout << "Please input the temperature in the Réaumur scale: ";
         cin >> x;
         Réaumur convert(x);
         cout << "Celsius: " << convert.celsius << endl;
