@@ -284,7 +284,7 @@ void convertTemperature(Temperature &temperature)
     case newton:
     {
         double x;
-        cout << "Please input the temperature in the Delisle scale: ";
+        cout << "Please input the temperature in the Newton scale: ";
         cin >> x;
         Newton convert(x);
         cout << "Celsius: " << convert.celsius << endl;
