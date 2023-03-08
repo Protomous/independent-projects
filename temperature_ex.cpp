@@ -144,6 +144,8 @@ public:
 
 int main()
 {
+    char redo;
+    bool redoB;
     string temp;
     cout << endl;
     cout << endl;
@@ -151,7 +153,7 @@ int main()
     cout << "***********************************************************************************\n";
     cout << "*************************** TEMPERATURE SCALE CONVERTER ***************************\n";
     cout << "***********************************************************************************\n";
-
+do{
     cout << "Please specify which temperature scale to use: ";
     cin >> temp;
 
@@ -216,6 +218,16 @@ int main()
     {
         cout << "Not a valid scale!";
     }
+
+    cout << "Do you want to do it again? (Y or N)";
+    cin >> redo;
+    if(toupper(redo) == 'Y'){
+        redoB = true;
+    }else{
+        redoB = false;
+    }
+
+    }while(redoB);
 
     cout << "***********************************************************************************\n";
     cout << "***********************************************************************************\n";
