@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -169,52 +170,57 @@ int main()
 Temperature getScale()
 {
     string temp;
-    cout << "Please specify which temperature scale to use: ";
-    cin >> temp;
+    bool valid = false;
+    do
+    {
+        cout << "Please specify which temperature scale to use: ";
+        cin >> temp;
 
-    transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
+        std::transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
 
-    if (temp == "fahrenheit")
-    {
-        return fahrenheit;
-    }
-    else if (temp == "celsius")
-    {
-        return celsius;
-    }
-    else if (temp == "kelvin")
-    {
-        return kelvin;
-    }
-    else if (temp == "delisle")
-    {
-        return delisle;
-    }
-    else if (temp == "newton")
-    {
-        return newton;
-    }
-    else if (temp == "gasmark")
-    {
-        return gasmark;
-    }
-    else if (temp == "rankine")
-    {
-        return rankine;
-    }
-    else if (temp == "romer")
-    {
+        if (temp == "fahrenheit")
+        {
+            return fahrenheit;
+        }
+        else if (temp == "celsius")
+        {
+            return celsius;
+        }
+        else if (temp == "kelvin")
+        {
+            return kelvin;
+        }
+        else if (temp == "delisle")
+        {
+            return delisle;
+        }
+        else if (temp == "newton")
+        {
+            return newton;
+        }
+        else if (temp == "gasmark")
+        {
+            return gasmark;
+        }
+        else if (temp == "rankine")
+        {
+            return rankine;
+        }
+        else if (temp == "romer")
+        {
 
-        return romer;
-    }
-    else if (temp == "reaumur" || temp == "réaumur")
-    {
-        return reaumur;
-    }
-    else
-    {
-        cout << "Not a valid scale!";
-    }
+            return romer;
+        }
+        else if (temp == "reaumur" || temp == "réaumur")
+        {
+            return reaumur;
+        }
+        else
+        {
+            cout << "Not a valid scale!\n";
+            valid = false;
+        }
+    } while (valid == false);
 }
 bool redo()
 {
@@ -240,7 +246,7 @@ bool redo()
             cout << "Please only answer with 'y' or 'n'\n";
             break;
         }
-    } while (tolower(answer.at(0)) != 'y' && tolower(answer.at(0) != 'n'));
+    } while (tolower(answer) != 'y' && tolower(answer != 'n'));
     return -1;
 }
 void convertTemperature(Temperature &temperature)
