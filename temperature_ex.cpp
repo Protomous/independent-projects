@@ -18,6 +18,7 @@ enum Temperature
 };
 
 Temperature getScale();
+
 void convertTemperature(Temperature &temperature);
 
 bool redo();
@@ -155,8 +156,8 @@ int main()
     cout << "***********************************************************************************\n";
     do
     {
-       Temperature temperature = getScale();
-       convertTemperature(temperature);
+        Temperature temperature = getScale();
+        convertTemperature(temperature);
 
     } while (redo() == true);
 
@@ -165,55 +166,55 @@ int main()
     cout << "***********************************************************************************\n";
 }
 
+Temperature getScale()
+{
+    string temp;
+    cout << "Please specify which temperature scale to use: ";
+    cin >> temp;
 
-Temperature getScale(){
-        string temp;
-        cout << "Please specify which temperature scale to use: ";
-        cin >> temp;
+    transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
 
-        transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
+    if (temp == "fahrenheit")
+    {
+        return fahrenheit;
+    }
+    else if (temp == "celsius")
+    {
+        return celsius;
+    }
+    else if (temp == "kelvin")
+    {
+        return kelvin;
+    }
+    else if (temp == "delisle")
+    {
+        return delisle;
+    }
+    else if (temp == "newton")
+    {
+        return newton;
+    }
+    else if (temp == "gasmark")
+    {
+        return gasmark;
+    }
+    else if (temp == "rankine")
+    {
+        return rankine;
+    }
+    else if (temp == "romer")
+    {
 
-        if (temp == "fahrenheit")
-        {
-            return fahrenheit;
-        }
-        else if (temp == "celsius")
-        {
-            return celsius;
-        }
-        else if (temp == "kelvin")
-        {
-            return kelvin;
-        }
-        else if (temp == "delisle")
-        {
-            return delisle;
-        }
-        else if (temp == "newton")
-        {
-            return newton;
-        }
-        else if (temp == "gasmark")
-        {
-            return gasmark;
-        }
-        else if (temp == "rankine")
-        {
-            return rankine;
-        }
-        else if (temp == "romer")
-        {
-
-            return romer;
-        }
-        else if (temp == "reaumur" || temp == "réaumur")
-        {
-            return reaumur;
-        }
-        else
-        {
-            cout << "Not a valid scale!";
-        }
+        return romer;
+    }
+    else if (temp == "reaumur" || temp == "réaumur")
+    {
+        return reaumur;
+    }
+    else
+    {
+        cout << "Not a valid scale!";
+    }
 }
 bool redo()
 {
