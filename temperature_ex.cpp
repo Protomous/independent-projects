@@ -17,9 +17,10 @@ enum Temperature
     reaumur
 };
 
+Temperature getScale();
 void convertTemperature(Temperature &temperature);
 
-bool redo(string answer);
+bool redo();
 
 class Scale
 {
@@ -146,8 +147,6 @@ public:
 
 int main()
 {
-    string temp;
-    string answer;
     cout << endl;
     cout << endl;
     cout << endl;
@@ -156,6 +155,19 @@ int main()
     cout << "***********************************************************************************\n";
     do
     {
+       Temperature temperature = getScale();
+       convertTemperature(temperature);
+
+    } while (redo() == true);
+
+    cout << "***********************************************************************************\n";
+    cout << "***********************************************************************************\n";
+    cout << "***********************************************************************************\n";
+}
+
+
+Temperature getScale(){
+        string temp;
         cout << "Please specify which temperature scale to use: ";
         cin >> temp;
 
@@ -163,80 +175,56 @@ int main()
 
         if (temp == "fahrenheit")
         {
-            Temperature temperature = fahrenheit;
-            convertTemperature(temperature);
+            return fahrenheit;
         }
         else if (temp == "celsius")
         {
-            Temperature temperature = celsius;
-            convertTemperature(temperature);
+            return celsius;
         }
         else if (temp == "kelvin")
         {
-            Temperature temperature = kelvin;
-            convertTemperature(temperature);
+            return kelvin;
         }
         else if (temp == "delisle")
         {
-            Temperature temperature = delisle;
-            convertTemperature(temperature);
+            return delisle;
         }
         else if (temp == "newton")
         {
-            Temperature temperature = newton;
-            convertTemperature(temperature);
-        }
-        else if (temp == "delisle")
-        {
-            Temperature temperature = delisle;
-            convertTemperature(temperature);
-        }
-        else if (temp == "delisle")
-        {
-            Temperature temperature = delisle;
-            convertTemperature(temperature);
+            return newton;
         }
         else if (temp == "gasmark")
         {
-            Temperature temperature = gasmark;
-            convertTemperature(temperature);
+            return gasmark;
         }
         else if (temp == "rankine")
         {
-            Temperature temperature = rankine;
-            convertTemperature(temperature);
+            return rankine;
         }
         else if (temp == "romer")
         {
-            Temperature temperature = delisle;
-            convertTemperature(temperature);
+
+            return romer;
         }
         else if (temp == "reaumur" || temp == "réaumur")
         {
-            Temperature temperature = reaumur;
-            convertTemperature(temperature);
+            return reaumur;
         }
         else
         {
             cout << "Not a valid scale!";
         }
-
-    } while (redo(answer) == true);
-
-    cout << "***********************************************************************************\n";
-    cout << "***********************************************************************************\n";
-    cout << "***********************************************************************************\n";
 }
-
-bool redo(string answer)
+bool redo()
 {
+    char answer;
     do
     {
         cout << "Would you like to roll again?\n";
         cout << "(y/n)\n";
         cin >> answer;
 
-        switch (tolower(answer.at(0)))
+        switch (tolower(answer))
         {
         case 'y':
             return true;
@@ -251,7 +239,7 @@ bool redo(string answer)
             cout << "Please only answer with 'y' or 'n'\n";
             break;
         }
-    } while (tolower(answer.at(0)) != 'y' & tolower(answer.at(0) != 'n'));
+    } while (tolower(answer.at(0)) != 'y' && tolower(answer.at(0) != 'n'));
     return -1;
 }
 void convertTemperature(Temperature &temperature)
