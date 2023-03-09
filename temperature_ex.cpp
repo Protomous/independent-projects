@@ -160,7 +160,7 @@ int main()
         Temperature temperature = getScale();
         convertTemperature(temperature);
 
-    } while (redo() == true);
+    } while (redo());
 
     cout << "***********************************************************************************\n";
     cout << "***********************************************************************************\n";
@@ -220,7 +220,7 @@ Temperature getScale()
             cout << "Not a valid scale!\n";
             valid = false;
         }
-    } while (valid == false);
+    } while (!valid);
 }
 bool redo()
 {
