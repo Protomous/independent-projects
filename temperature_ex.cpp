@@ -217,7 +217,7 @@ Temperature getScale()
         }
         else
         {
-            cout << "Not a valid scale!\n";
+            cout << "Not a valid scale! Maybe a typo?\n";
             valid = false;
         }
     } while (!valid);
