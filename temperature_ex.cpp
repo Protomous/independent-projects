@@ -15,7 +15,7 @@ enum Temperature
     gasmark,
     rankine,
     romer,
-    reaumur
+    reaumur,
 };
 
 Temperature getScale();
@@ -176,7 +176,7 @@ Temperature getScale()
         cout << "Please specify which temperature scale to use: ";
         cin >> temp;
 
-        std::transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
+        transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
 
         if (temp == "fahrenheit")
         {
@@ -227,7 +227,7 @@ bool redo()
     char answer;
     do
     {
-        cout << "Would you like to roll again?\n";
+        cout << "Would you like to do it again?\n";
         cout << "(y/n)\n";
         cin >> answer;
 
