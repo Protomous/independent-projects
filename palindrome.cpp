@@ -11,9 +11,9 @@ int main()
 {
     do
     {
-        cout << "Type in a word, and I'll tell you if it's a palindrome!\n";
+        cout << "Type in a word or phrase, and I'll tell you if it's a palindrome!\n";
         string word;
-        cin >> word;
+        getline(cin, word);
 
         if (is_palindrome(word))
         {
@@ -31,14 +31,34 @@ int main()
 bool is_palindrome(string word)
 {
     string check;
+    string tempword;
 
-    for (int i = word.size()-1; i >= 0; i--)
+    for (int i = 0; i < word.size(); i++)
     {
-        word[i] = tolower(word[i]);
-        check += word[i];
+        if (word[i] == ' ' || word[i] == '.' || word[i] == ',' || word[i] == '?' || word[i] == '!' || word[i] == ':' || word[i] == ';')
+        {
+            continue;
+        }
+        else
+        {
+            tempword += word[i];
+        }
     }
 
-    if (check == word)
+    for (int i = tempword.size() - 1; i >= 0; i--)
+    {
+        if (tempword[i] == ' ')
+        {
+            continue;
+        }
+        else
+        {
+            tempword[i] = tolower(tempword[i]);
+            check += tempword[i];
+        }
+    }
+
+    if (check == tempword)
     {
         return true;
     }
