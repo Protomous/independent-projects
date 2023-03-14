@@ -3,19 +3,25 @@
 
 using namespace std;
 
-bool is_palindrome(string word);
+string getWord(string word);
+
+bool isPalindrome(string word);
 
 bool redo();
 
 int main()
 {
+    cout << endl;
+    cout << "*****************************\n";
+    cout << "**** PALINDROME DETECTOR ****\n";
+    cout << "*****************************\n";
+    cout << endl;
     do
     {
-        cout << "Type in a word or phrase, and I'll tell you if it's a palindrome!\n";
         string word;
-        getline(cin, word);
+        word = getWord(word);
 
-        if (is_palindrome(word))
+        if (isPalindrome(word))
         {
             toupper(word[0]);
             cout << word << " is a palindrome!\n";
@@ -26,9 +32,15 @@ int main()
             cout << word << " is not a palindrome!\n";
         }
     } while (redo());
+
+    cout << endl;
+    cout << "*****************************\n";
+    cout << "*****************************\n";
+    cout << "*****************************\n";
+    cout << endl;
 }
 
-bool is_palindrome(string word)
+bool isPalindrome(string word)
 {
     string check;
     string tempword;
@@ -41,7 +53,7 @@ bool is_palindrome(string word)
         }
         else
         {
-            tempword += word[i];
+            tempword += tolower(word[i]);
         }
     }
 
@@ -76,10 +88,20 @@ bool redo()
 
     if (tolower(answer) == 'y')
     {
+        cout << endl;
         return true;
     }
     else
     {
+        cout << endl;
+        cout << "Have a good day!\n";
         return false;
     }
+}
+
+string getWord(string word)
+{
+    cout << "Type in a word or phrase, and I'll tell you if it's a palindrome!\n";
+    getline(cin >> ws, word);
+    return word;
 }
