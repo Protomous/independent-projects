@@ -47,7 +47,9 @@ bool isPalindrome(string word)
 
     for (int i = 0; i < word.size(); i++)
     {
-        if (word[i] == ' ' || word[i] == '.' || word[i] == ',' || word[i] == '?' || word[i] == '!' || word[i] == ':' || word[i] == ';')
+        if (word[i] == ' ' || word[i] == '.' || word[i] == ',' ||
+            word[i] == '?' || word[i] == '!' || word[i] == ':' || 
+            word[i] == ';')
         {
             continue;
         }
